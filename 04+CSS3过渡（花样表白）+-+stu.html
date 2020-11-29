@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>04 CSS3过渡（花样告白）</title>   
+    <style>
+    body{
+        background-color: #4993eb;
+    }
+/*爱心部分*/
+    .heartone{
+
+            width: 200px;
+            height: 310px;
+            border: 1px solid #ff0582;
+            border-radius:41% 50% 0 0;
+            margin: 10px auto;
+            transform: rotate(-45deg);
+            top:20px;
+            left:250px;
+            position: absolute;
+            background-color: #ff0582;
+
+         }
+         .hearttwo{
+
+            width: 200px;
+            height: 310px;
+            border: 1px solid #ff0582;
+            border-radius:50% 41% 0 0;
+            margin: 10px auto;
+            transform: rotate(45deg);
+            top:20px;
+            left:329px;
+            position: absolute;
+            background-color: #ff0582;
+            box-shadow:4px 0px 4px 0px #ff0572;
+         }
+         .heartone:before{
+            content:"王嘉尔";
+            color:#ff5801;
+            font-size:26px;
+            top:50px;
+            left:45px;
+            position: relative;
+         }
+         .hearttwo:before{
+            content:"喜欢你";
+            color:#ff5801;
+            font-size:26px;
+            top:50px;
+            left:75px;
+            position: relative;
+           }
+/*立体旋转*/
+    .wallet {
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+            transform-style: preserve-3d;
+         }
+        
+         .wallet::before {
+            transform: rotateY(180deg);
+            background: url(images/bg.png) left top;
+         }
+        
+         .wallet::after {
+            background: url(images/bg.png) right top;
+         }
+        
+         .wallet::before,
+         .wallet::after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 150px;
+            position: absolute;
+            left: 370px;
+            top: 0;
+            backface-visibility: hidden;
+         }
+        
+         .wallet::before {
+            animation: spin 4s linear infinite -2s;
+         }
+        
+         .wallet::after {
+            animation: spin 4s linear infinite;
+         }
+        
+         @keyframes spin {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+         }
+/*排版*/
+    .items{
+        height:400px;
+     }
+     .item .pic{
+        padding:45px;
+     }
+     .item .desc{
+       text-align:center;
+       }
+     .item:nth-child(1){
+        width:200px;
+        height:400px;
+        left:150px;
+        top:400px;
+        position:absolute;  
+     }
+
+     .item:nth-child(2){
+        width:231px;
+        height:299px;
+        left:410px;
+        top:0;
+        position:relative; 
+        background-color: #fff;   
+     }
+     .item:nth-child(3){
+        width:231px;
+        height:299px;
+        left:660px;
+        top:-300px;
+        position:relative; 
+        background-color: #fff;    
+     }
+     .item:nth-child(4){
+        width:231px;
+        height:299px;
+        left:910px;
+        top:-598px;
+        position:relative; 
+        background-color: #fff;    
+     }
+     .item:nth-child(5){
+        width:231px;
+        height:299px;
+        left:1160px;
+        top:-897px;
+        position:relative; 
+        background-color: #fff;  
+     }
+/*鼠标点击上浮文字框*/
+   .item:nth-child(2){
+            /*定义父级的大小，设置高度为图片高度，便于隐藏文字部分*/
+            width: 231px;
+            height: 299px;
+            background: #fff;
+            position: relative;/*overflow: hidden;隐藏文字部分*/
+            overflow: hidden;/*隐藏超出的部分，就是隐藏蒙版部分*/
+         }
+         .pic{
+            height: 200px;
+            background: #fff;
+         }
+         .desc{
+            /*创建一个蒙版*/
+            height: 50px;
+            width: 231px;
+            padding-top:20px;
+            background:#ff5801;
+            position: absolute;
+            bottom:-100px;
+            left: 0;
+            transition: all linear 0.5s;
+            color:#f1f1f1;
+            font-size: 24px;
+         }
+         .item:nth-child(2):hover .desc{
+            bottom: 0;
+         }
+         .item:nth-child(2):hover{
+            box-shadow: 5px 5px 0 0 #3c83d7;
+            transform: translateY(-8px);
+         }
+   .item:nth-child(3){
+            /*定义父级的大小，设置高度为图片高度，便于隐藏文字部分*/
+            width: 231px;
+            height: 299px;
+            background: #fff;
+            position: relative;/*overflow: hidden;隐藏文字部分*/
+            overflow: hidden;/*隐藏超出的部分，就是隐藏蒙版部分*/
+         }
+                 .pic{
+            height: 200px;
+            background: #fff;
+         }
+         .desc{
+            /*创建一个蒙版*/
+            height: 50px;
+            width: 231px;
+            padding-top:20px;
+            background:#ff5801;
+            position: absolute;
+            bottom:-100px;
+            left: 0;
+            transition: all linear 0.5s;
+            color:#f1f1f1;
+            font-size: 24px;
+         }
+         .item:nth-child(3):hover .desc{
+            bottom: 0;
+         }
+         .item:nth-child(3):hover{
+            box-shadow: 5px 5px 0 0 #3c83d7;
+            transform: translateY(-8px);
+         }
+   .item:nth-child(4){
+            /*定义父级的大小，设置高度为图片高度，便于隐藏文字部分*/
+            width: 231px;
+            height: 299px;
+            background: #fff;
+            position: relative;/*overflow: hidden;隐藏文字部分*/
+            overflow: hidden;/*隐藏超出的部分，就是隐藏蒙版部分*/
+         }
+         .pic{
+            height: 200px;
+            background: #fff;
+         }
+         .desc{
+            /*创建一个蒙版*/
+            height: 50px;
+            width: 231px;
+            padding-top:20px;
+            background:#ff5801;
+            position: absolute;
+            bottom:-100px;
+            left: 0;
+            transition: all linear 0.5s;
+         }
+         .item:nth-child(4):hover .desc{
+            bottom: 0;
+         }
+         .item:nth-child(4):hover{
+            box-shadow: 5px 5px 0 0 #3c83d7;
+            transform: translateY(-8px);
+         }
+   .item:nth-child(5){
+            /*定义父级的大小，设置高度为图片高度，便于隐藏文字部分*/
+            width: 231px;
+            height: 299px;
+            background: #fff;
+            position: relative;/*overflow: hidden;隐藏文字部分*/
+            overflow: hidden;/*隐藏超出的部分，就是隐藏蒙版部分*/
+         }
+         .pic{
+            height: 200px;
+            background: #fff;
+         }
+         .desc{
+            /*创建一个蒙版*/
+            height: 50px;
+            width: 231px;
+            padding-top:20px;
+            background:#ff5801;
+            position: absolute;
+            bottom:-100px;
+            left: 0;
+            transition: all linear 0.5s;
+         }
+         .item:nth-child(5):hover .desc{
+             bottom: 0;
+         }
+         .item:nth-child(5):hover{
+            box-shadow: 5px 5px 0 0 #3c83d7;
+            transform: translateY(-8px);
+         }
+       
+</style>
+</head>
+
+<body>
+    <div class="top">
+         <div class="heart">
+         <div class="heartone"></div>
+        <div class="hearttwo"></div>
+         </div>
+    <div class="box">
+        <div class="wallet"></div>
+    </div>
+   
+    <div class="items">
+        <div class="item">
+            <img src="images/1.jpg" alt="">
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="images/2.png" alt="">
+            </div>
+            <div class="desc">有句话悄悄说</div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="images/3.png" alt="">
+            </div>
+            <div class="desc">你的样子最可爱</div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="images/4.png" alt="">
+            </div>
+            <div class="desc">喜欢的就是你</div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="images/5.png" alt="">
+            </div>
+            <div class="desc">期限是一万年</div>
+        </div>
+    </div>
+</body>
+
+</html>
